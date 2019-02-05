@@ -426,54 +426,56 @@ console.log('DesTr0');
  message.author.sendMessage(`
  **
 [❖═════ General Commands ═══════❖]
- _id معلومات عن حسابك الشخصي
- _server معلومات حول السيرفر
+ _id : معلومات عن حسابك الشخصي
+ _server : معلومات حول السيرفر
  
- _move سحب عضو الى رومك الصوتي
- _clear مسح الرسائل الموجوده في الروم بعدد
- _avatar يعرض لك صورتك الشخصية
+ _move : سحب عضو الى رومك الصوتي
+ _clear : مسح الرسائل الموجوده في الروم بعدد
+ _avatar : يعرض لك صورتك الشخصية
  
- _image يعرض لك صورة السيرفر
+ _image : يعرض لك صورة السيرفر
  
- _credit يوريك كم الكريديت حقتك
- _daily يسوي لك سحب فلوس
- _rep يعطي ريب
- _profile معلومات عامة مع الصورة
+ _credit : يوريك كم الكريديت حقتك
+ _daily : يسوي لك سحب فلوس
+ _rep : يعطي ريب
+ _profile : معلومات عامة مع الصورة
  
- _myprems يعرض لك الخصائص المتاحة عندك
+ _myprems : يعرض لك الخصائص المتاحة عندك
 [❖═════ Administrator Commands ═══════❖]
- _ban حظر عضو من السيرفر
+ _ban : حظر عضو من السيرفر
  
- _kick طرد عضو من السيرفر
+ _kick : طرد عضو من السيرفر
  
- _mute اعطاء ميوت كتابي لعضو في السيرفر
+ _mute : اعطاء ميوت كتابي لعضو في السيرفر
  
- _unmute فك الميوت عن عضو في السيرفر
+ _unmute : فك الميوت عن عضو في السيرفر
  
- _dac حذف جميع رومات السيرفر
+ _dac : حذف جميع رومات السيرفر
  
- _dar حذف جميع رتب السيرفر
+ _dar : حذف جميع رتب السيرفر
  
- _openroom فتح المحادثة في الروم
+ _openroom : فتح المحادثة في الروم
  
- _closeroom قفل المحادثة في الروم
- _role اعطاء رتبه لشخض معين
+ _closeroom : قفل المحادثة في الروم
+ _role : اعطاء رتبه لشخض معين
  
- _role humans اعطاء رتب للبشريين
+ _role humans : اعطاء رتب للبشريين
  
- _role bots اعطاء رتبه للبوتات
+ _role bots : اعطاء رتبه للبوتات
  
- _role all اعطاء رتبه للجميع سواء بشر او بوتات
+ _role all : اعطاء رتبه للجميع سواء بشر او بوتات
  
+ _new : لفتح تذكره
+
  _bc1 : برودكاست لجميع اعضاء السيرفر بايمبد
 
  _bc2 : برودكاست لجميع اعضاء السيرفر بدون ايمبد
 
  _bc3 : برودكاست للاعضاء  الاونلاين فقط
 [❖═════ Other ═══════❖]
- _support رابط سيرفر الدعم الفني
+ _support : رابط سيرفر الدعم الفني
  
- _invite رابط اضافة البوت
+ _invite : رابط اضافة البوت
  **`);
 
     }
@@ -815,6 +817,84 @@ client.on("message", message => {
  message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`); 
  message.delete(); 
 };     
+});
+client.on('message', message => {
+ var prefix = "_"
+    if(message.content.startsWith(prefix + 'new')) {
+        let args = message.content.split(' ').slice(1).join(' ');
+        let support = message.guild.roles.find("name","Support Team");
+        let ticketsStation = message.guild.channels.find("name", "TICKETS");
+        if(!args) {
+            return message.channel.send('الرجاء كتابة سبب التذكرة');
+        };
+                if(!support) {
+                    return message.channel.send('**Please make sure that `Support Team` role exists and it\'s not duplicated.**');
+                };
+            if(!ticketsStation) {
+                message.guild.createChannel("Ticket", "category");
+            };
+                message.guild.createChannel(`𝑻𝑰𝑪𝑲𝑬𝑻`, "text").then(ticket => {
+                    message.delete()
+                        message.channel.send(`تم انشاء تذكرتك. [ ${ticket} ]`);
+                    ticket.setParent(ticketsStation);
+                    ticketsStation.setPosition(1);
+                        ticket.overwritePermissions(message.guild.id, {
+                            SEND_MESSAGES: false,
+                            READ_MESSAGES: false
+                        });
+                            ticket.overwritePermissions(support.id, {
+                                SEND_MESSAGES: true,
+                                READ_MESSAGES: true
+                            });
+                                ticket.overwritePermissions(message.author.id, {
+                                    SEND_MESSAGES: true,
+                                    READ_MESSAGES: true
+                                });
+                    let embed = new Discord.RichEmbed()
+                                .setTitle('**تذكرة جديدة.**')
+                                .setColor("RANDOM")
+                                .setThumbnail(`${message.author.avatarURL}`)
+                                .addField('سبب التذكرة', args)
+                                .addField('صاحب التذكرة', message.author)
+                                .addField('الروم', `<#${message.channel.id}>`);
+
+                                ticket.sendEmbed(embed);
+                }) .catch();
+    }
+    if(message.content.startsWith(prefix + 'close')) {
+            if(!message.member.hasPermission("ADMINISTRATOR")) return;
+        if(!message.channel.name.startsWith("𝑻𝑰𝑪𝑲𝑬𝑻")) {
+            return;
+        };  
+                let embed = new Discord.RichEmbed()
+                    .setAuthor("هل تريد فعلآ اغلاق التذكرة ؟.")
+                    .setColor("RANDOM");
+                    message.channel.sendEmbed(embed) .then(codes => {
+
+                    
+                        const filter = msg => msg.content.startsWith(prefix + 'close');
+                        message.channel.awaitMessages(response => response.content === prefix + 'close', {
+                            max: 1,
+                            time: 20000,
+                            errors: ['time']
+                        })
+                        .then((collect) => {
+                            message.channel.delete();
+                        }) .catch(() => {
+                            codes.delete()
+                                .then(message.channel.send('**Operation has been cancelled.**')) .then((c) => {
+                                    c.delete(4000);
+                                })
+                                    
+                            
+                        })
+
+
+                    })
+
+
+            
+    }
 });
 
 client.on('ready', () => {
