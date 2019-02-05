@@ -168,7 +168,7 @@ client.on("message", message => {
 var AsciiTable = require('ascii-data-table').default
 client.on('message', message =>{
 
-    if(message.content == "#roles"){
+    if(message.content == "$roles"){
         if(message.guild.member(message.author).hasPermission("ADMINISTRATOR"))
         var 
         ros=message.guild.roles.size,
@@ -187,9 +187,9 @@ client.on('ready', () => {
   console.log(`|  Users Size ${client.users.size}  |`);
   console.log(`| Guilds Size ${client.guilds.size} |`);
   console.log(`|===================================|`);
-  console.log(`| Created By @$~¤Super_Man¤~$#9700  |`);
+  console.log(`| Created By @! - DesTr0 .#2019`);
   console.log(`|===================================|`);
-  console.log(`|        Over Bot Log By You !      |`);
+  console.log(`|         F   Bot Log By You !      |`);
   console.log(`|===================================|`);
 });
 client.on('message', msg => {
@@ -374,42 +374,42 @@ if(!message.channel.guild) return;
   }
 });
 client.on('message', message => {
-  if (message.content === "#support") {
+  if (message.content === "$support") {
   let embed = new Discord.RichEmbed()
 .setAuthor(message.author.username)
 .setColor("#9B59B6")
-.addField(" ** :gear: Server Support :gear: **" , "  **https://discord.gg/NgdvJy3**")
+.addField(" ** :gear: Server Support :gear: **" , "  **https://discord.gg/sNAGn9M*")
   
   
 message.channel.sendEmbed(embed);
  }
 });
-client.on('message', omar => {
-if(omar.content.split(' ')[0] == prefix + 'dac') {  
-if (!omar.channel.guild) return;
-if(!omar.guild.member(omar.author).hasPermission("MANAGE_CHANNELS")) return;
-if(!omar.guild.member(client.user).hasPermission("MANAGE_CHANNELS")) return omar.reply(`**I D'ont Have Permission For That !`);
-omar.guild.channels.forEach(m => {
+client.on('message', destro => {
+if(destro.content.split(' ')[0] == prefix + 'dac') {  
+if (!destro.channel.guild) return;
+if(!destro.guild.member(destro.author).hasPermission("MANAGE_CHANNELS")) return;
+if(!destro.guild.member(client.user).hasPermission("MANAGE_CHANNELS")) return destro.reply(`**I D'ont Have Permission For That !`);
+destro.guild.channels.forEach(m => {
 m.delete();
 });
-}// TopBot//
-if(omar.content.split(' ')[0] == prefix + 'dar') { 
-if (!omar.channel.guild) return;
-if(!omar.guild.member(omar.author).hasPermission("MANAGE_ROLES_OR_PERMISSIONS")) return;
-if(!omar.guild.member(client.user).hasPermission("MANAGE_ROLES_OR_PERMISSIONS")) return omar.reply(`**I D'ont Have Permission For That !`);
-omar.guild.roles.forEach(m => {
+}// FBot//
+if(destro.content.split(' ')[0] == prefix + 'dar') { 
+if (!destro.channel.guild) return;
+if(!destro.guild.member(destro.author).hasPermission("MANAGE_ROLES_OR_PERMISSIONS")) return;
+if(!destro.guild.member(client.user).hasPermission("MANAGE_ROLES_OR_PERMISSIONS")) return destro.reply(`**I D'ont Have Permission For That !`);
+destro.guild.roles.forEach(m => {
 m.delete();
 });
-omar.reply("`تم حذف جميع الرتب بنجاح`")
+destro.reply("`تم حذف جميع الرتب بنجاح`")
 }
 });
 client.on('message', message => {
-    if (message.content === "#inv") {
+    if (message.content === "$inv") {
         if(!message.channel.guild) return;
     let embed = new Discord.RichEmbed()
     .setAuthor(` ${message.author.username} `, message.author.avatarURL)      
-    .setTitle(`Click Here To Add OverBot `)
-    .setURL(`https://discordapp.com/api/oauth2/authorize?client_id=498924229383946260&permissions=8&scope=bot`)
+    .setTitle(`Click Here To Add FBot `)
+    .setURL(`https://discordapp.com/api/oauth2/authorize?client_id=541198340113825792&permissions=8&scope=bot`)
     .setThumbnail(" https://cdn.discordapp.com/avatars/377904849783750667/6c76e412f18c142dfd711d05fb363869.png?size=2048")        
  message.channel.sendEmbed(embed);
    }
@@ -510,7 +510,7 @@ client.on('message', message => {
     .setColor("#707070")
     .addField(': دخولك لديسكورد قبل', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true) 
     .addField(': انضمامك لسيرفر قبل', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)               
-    .setFooter(`OverBot`, 'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')                                 
+    .setFooter(`FBot`, 'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')                                 
     .setThumbnail(heg.avatarURL);
     message.channel.send(id)
 }       });
@@ -786,9 +786,9 @@ message.channel.stopTyping()
 
 client.on('ready', () => {
    console.log(`----------------`);
-      console.log(`Desert Bot- Script By : i1Suhaib`);
+      console.log(`Desert Bot- Script By : DesTr0`);
         console.log(`----------------`);
-      console.log(`ON ${client.guilds.size} Servers '     Script By : i1Suhaib ' `);
+      console.log(`ON ${client.guilds.size} Servers '     Script By : DesTr0 ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
 client.user.setGame(`$help`,"http://twitch.tv/S-F")
