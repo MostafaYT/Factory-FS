@@ -514,8 +514,6 @@ client.on("message", message => {
     level: 0,
     points: 0,
     credits: 1000000,
-  
-console.log('DesTrO');
   };
  
  
