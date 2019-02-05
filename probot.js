@@ -864,7 +864,7 @@ if (message.content.toLowerCase().startsWith(prefix + `new`)) {
         c.send({ embed: embed });
     }).catch(console.error);
 }
-if (message.content.toLowerCase().startsWith(prefix + `close`)) {
+if (message.content.toLowerCase().startsWith(prefix + `delete`)) {
     if (!message.channel.name.startsWith(`ticket_`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
 
     message.channel.send(`Are you sure? Once confirmed, you cannot reverse this action!\nTo confirm, type \`_confirm\`. This will time out in 10 seconds and be cancelled.`)
@@ -878,7 +878,7 @@ if (message.content.toLowerCase().startsWith(prefix + `close`)) {
           message.channel.delete();
         })
         .catch(() => {
-          m.edit('Ticket close timed out, the ticket was not closed.').then(m2 => {
+                 m.edit('Ticket delete timed out, the ticket was not deleted.').then(m2 => {
               m2.delete();
           }, 3000);
         });
