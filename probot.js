@@ -431,7 +431,7 @@ console.log('DesTr0');
  
  _move سحب عضو الى رومك الصوتي
  _clear مسح الرسائل الموجوده في الروم بعدد
- _avatar يعرض اك صورتك الشخصية
+ _avatar يعرض لك صورتك الشخصية
  
  _image يعرض لك صورة السيرفر
  
@@ -442,11 +442,11 @@ console.log('DesTr0');
  
  _myprems يعرض لك الخصائص المتاحة عندك
 [❖═════ Administrator Commands ═══════❖]
- _ban حضر عضو من السيرفر
+ _ban حظر عضو من السيرفر
  
  _kick طرد عضو من السيرفر
  
- _mute اعضاء ميوت كتابي لعضو في السيرفر
+ _mute اعطاء ميوت كتابي لعضو في السيرفر
  
  _unmute فك الميوت عن عضو في السيرفر
  
@@ -465,6 +465,11 @@ console.log('DesTr0');
  
  _role all اعطاء رتبه للجميع سواء بشر او بوتات
  
+ _bc1 : برودكاست لجميع اعضاء السيرفر بايمبد
+
+ _bc2 : برودكاست لجميع اعضاء السيرفر بدون ايمبد
+
+ _bc3 : برودكاست للاعضاء  الاونلاين فقط
 [❖═════ Other ═══════❖]
  _support رابط سيرفر الدعم الفني
  
@@ -769,6 +774,47 @@ message.channel.stopTyping()
 })
 })
 }
+});
+
+client.on('message', message => {
+if (message.author.id === client.user.id) return;
+if (message.guild) {
+let embed = new Discord.RichEmbed()
+let args = message.content.split(' ').slice(1).join(' ');
+if(message.content.split(' ')[0] == prefix + 'bc2') {
+if(!message.channel.guild) return message.reply('**:x: اسف لكن هذا الامر للسيرفرات فقط **');         
+if (!args[1]) {
+return;
+}
+  message.guild.members.forEach(m => {
+if(!message.member.hasPermission('ADMINISTRATOR')) return;
+      var bc = new Discord.RichEmbed()
+      .addField('_ | الرسالة ', args)
+      .setThumbnail(message.guild.iconURL)
+      .setColor('RANDOM')
+      m.sendMessage(args)
+  });
+         if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply(":x: **ليس لديك صلاحية للنشر هنا**");
+  const AziRo = new Discord.RichEmbed()   
+  .setColor('RANDOM')
+  message.channel.sendEmbed(AziRo);          
+}
+} else {
+  return;
+}
+});
+client.on("message", message => {
+
+            if (message.content.startsWith(prefix + "bc3")) {
+                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+  let args = message.content.split(" ").slice(1);
+  var argresult = args.join(' '); 
+  message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
+ m.send(`${argresult}\n ${m}`);
+})
+ message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`); 
+ message.delete(); 
+};     
 });
 
 client.on('ready', () => {
