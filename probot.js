@@ -417,9 +417,11 @@ client.on('message', message => {
 
 client.on('message', message => {
     if (message.author.bot) return;
-     if (message.content === prefix + "help")  
+     if (message.content === prefix + "help") {
+      if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
      message.channel.send('**تم ارسال رسالة في الخاص**');
-
+}
+});
 
 
 
