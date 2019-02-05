@@ -3,7 +3,8 @@ const moment = require("moment");
 const fs = require("fs");      
 const dateFormat = require('dateformat');
 const client = new Discord.Client(); 
-const prefix = "#"
+const Canvas = require("canvas"); //npm i canvas
+const prefix = "$"
 let profile = JSON.parse(fs.readFileSync("profile.json", "utf8"))
 
 
@@ -12,7 +13,7 @@ let profile = JSON.parse(fs.readFileSync("profile.json", "utf8"))
 
 
 client.on('message', message => {
-    var prefix = "#";
+    var prefix = "$";
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
  
@@ -427,59 +428,59 @@ client.on('message', message => {
  **
 [❖═════ General Commands ═══════❖]
 
- #id معلومات عن حسابك الشخصي
+ $id معلومات عن حسابك الشخصي
 
- #server معلومات حول السيرفر
+ $server معلومات حول السيرفر
  
- #move سحب عضو الى رومك الصوتي
+ $move سحب عضو الى رومك الصوتي
 
- #clear مسح الرسائل الموجوده في الروم بعدد
+ $clear مسح الرسائل الموجوده في الروم بعدد
 
- #avatar يعرض اك صورتك الشخصية
+ $avatar يعرض اك صورتك الشخصية
  
- #image يعرض لك صورة السيرفر
+ $image يعرض لك صورة السيرفر
  
- #credit يوريك كم الكريديت حقتك
+ $credit يوريك كم الكريديت حقتك
 
- #daily يسوي لك سحب فلوس
+ $daily يسوي لك سحب فلوس
 
- #rep يعطي ريب
+ $rep يعطي ريب
 
- #profile معلومات عامة مع الصورة
+ $profile معلومات عامة مع الصورة
  
- #myprems يعرض لك الخصائص المثاحة عندك
+ $myprems يعرض لك الخصائص المثاحة عندك
 
 [❖═════ Administrator Commands ═══════❖]
 
- #ban حضر عضو من السيرفر
+ $ban حضر عضو من السيرفر
  
- #kick طرد عضو من السيرفر
+ $kick طرد عضو من السيرفر
  
- #mute اعضاء ميوت كتابي لعضو في السيرفر
+ $mute اعضاء ميوت كتابي لعضو في السيرفر
  
- #unmute فك الميوت عن عضو في السيرفر
+ $unmute فك الميوت عن عضو في السيرفر
  
- #dac حذف جميع رومات السيرفر
+ $dac حذف جميع رومات السيرفر
  
- #dar حذف جميع رتب السيرفر
+ $dar حذف جميع رتب السيرفر
  
- #openroom فتح المحادثة في الروم
+ $openroom فتح المحادثة في الروم
  
- #closeroom قفل المحادثة في الرةوم
+ $closeroom قفل المحادثة في الرةوم
 
- #role اعطاء رتبه لشخض معين
+ $role اعطاء رتبه لشخض معين
  
- #role humans اعطاء رتب للبشريين
+ $role humans اعطاء رتب للبشريين
  
- #role bots اعطاء رتبه للبوتات
+ $role bots اعطاء رتبه للبوتات
  
- #role all اعطاء رتبه للجميع سواء بشر او بوتات
+ $role all اعطاء رتبه للجميع سواء بشر او بوتات
  
 [❖═════ Other ═══════❖]
 
- #support رابط سيرفر الدعم الفني
+ $support رابط سيرفر الدعم الفني
  
- #invite رابط اضافة البوت
+ $invite رابط اضافة البوت
 
  **`);
 
