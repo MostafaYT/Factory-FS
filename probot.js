@@ -448,7 +448,7 @@ client.on('message', message => {
 
  _profile معلومات عامة مع الصورة
  
- _myprems يعرض لك الخصائص المثاحة عندك
+ _myprems يعرض لك الخصائص المتاحة عندك
 
 [❖═════ Administrator Commands ═══════❖]
 
@@ -466,7 +466,7 @@ client.on('message', message => {
  
  _openroom فتح المحادثة في الروم
  
- _closeroom قفل المحادثة في الرةوم
+ _closeroom قفل المحادثة في الروم
 
  _role اعطاء رتبه لشخض معين
  
