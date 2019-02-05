@@ -4,7 +4,7 @@ const fs = require("fs");
 const dateFormat = require('dateformat');
 const client = new Discord.Client(); 
 const Canvas = require("canvas"); //npm i canvas
-const prefix = "$"
+const prefix = "_"
 let profile = JSON.parse(fs.readFileSync("profile.json", "utf8"))
 
 
@@ -13,7 +13,7 @@ let profile = JSON.parse(fs.readFileSync("profile.json", "utf8"))
 
 
 client.on('message', message => {
-    var prefix = "$";
+    var prefix = "_";
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
  
@@ -374,7 +374,7 @@ if(!message.channel.guild) return;
   }
 });
 client.on('message', message => {
-  if (message.content === "$support") {
+  if (message.content === "_support") {
   let embed = new Discord.RichEmbed()
 .setAuthor(message.author.username)
 .setColor("#9B59B6")
@@ -404,7 +404,7 @@ destro.reply("`تم حذف جميع الرتب بنجاح`")
 }
 });
 client.on('message', message => {
-    if (message.content === "$inv") {
+    if (message.content === "_inv") {
         if(!message.channel.guild) return;
     let embed = new Discord.RichEmbed()
     .setAuthor(` ${message.author.username} `, message.author.avatarURL)      
@@ -428,59 +428,59 @@ client.on('message', message => {
  **
 [❖═════ General Commands ═══════❖]
 
- $id معلومات عن حسابك الشخصي
+ _id معلومات عن حسابك الشخصي
 
- $server معلومات حول السيرفر
+ _server معلومات حول السيرفر
  
- $move سحب عضو الى رومك الصوتي
+ _move سحب عضو الى رومك الصوتي
 
- $clear مسح الرسائل الموجوده في الروم بعدد
+ _clear مسح الرسائل الموجوده في الروم بعدد
 
- $avatar يعرض اك صورتك الشخصية
+ _avatar يعرض اك صورتك الشخصية
  
- $image يعرض لك صورة السيرفر
+ _image يعرض لك صورة السيرفر
  
- $credit يوريك كم الكريديت حقتك
+ _credit يوريك كم الكريديت حقتك
 
- $daily يسوي لك سحب فلوس
+ _daily يسوي لك سحب فلوس
 
- $rep يعطي ريب
+ _rep يعطي ريب
 
- $profile معلومات عامة مع الصورة
+ _profile معلومات عامة مع الصورة
  
- $myprems يعرض لك الخصائص المثاحة عندك
+ _myprems يعرض لك الخصائص المثاحة عندك
 
 [❖═════ Administrator Commands ═══════❖]
 
- $ban حضر عضو من السيرفر
+ _ban حضر عضو من السيرفر
  
- $kick طرد عضو من السيرفر
+ _kick طرد عضو من السيرفر
  
- $mute اعضاء ميوت كتابي لعضو في السيرفر
+ _mute اعضاء ميوت كتابي لعضو في السيرفر
  
- $unmute فك الميوت عن عضو في السيرفر
+ _unmute فك الميوت عن عضو في السيرفر
  
- $dac حذف جميع رومات السيرفر
+ _dac حذف جميع رومات السيرفر
  
- $dar حذف جميع رتب السيرفر
+ _dar حذف جميع رتب السيرفر
  
- $openroom فتح المحادثة في الروم
+ _openroom فتح المحادثة في الروم
  
- $closeroom قفل المحادثة في الرةوم
+ _closeroom قفل المحادثة في الرةوم
 
- $role اعطاء رتبه لشخض معين
+ _role اعطاء رتبه لشخض معين
  
- $role humans اعطاء رتب للبشريين
+ _role humans اعطاء رتب للبشريين
  
- $role bots اعطاء رتبه للبوتات
+ _role bots اعطاء رتبه للبوتات
  
- $role all اعطاء رتبه للجميع سواء بشر او بوتات
+ _role all اعطاء رتبه للجميع سواء بشر او بوتات
  
 [❖═════ Other ═══════❖]
 
- $support رابط سيرفر الدعم الفني
+ _support رابط سيرفر الدعم الفني
  
- $invite رابط اضافة البوت
+ _invite رابط اضافة البوت
 
  **`);
 
@@ -791,7 +791,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : DesTr0 ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`$help`,"http://twitch.tv/S-F")
+client.user.setGame(`_help`,"http://twitch.tv/S-F")
 client.user.setStatus("dnd")
 });
 
