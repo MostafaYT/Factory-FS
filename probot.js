@@ -508,12 +508,12 @@ client.on("message", message => {
   if(!message.channel.guild)return;
   if (!profile[message.author.id]) profile[message.author.id] = {
     tite: 'Super User',
-    rep: 1000,
+    rep: 0,
     reps: 'NOT YET',
     lastDaily:'Not Collected',
     level: 0,
     points: 0,
-    credits: 1000000,
+    credits: 200,
   };
  
  
