@@ -418,40 +418,30 @@ client.on('message', message => {
 client.on('message', message => {
     if (message.author.bot) return;
      if (message.content === prefix + "help") {
-      if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
      message.channel.send('**تم ارسال رسالة في الخاص**');
 
 
 
-
+console.log('DesTr0');
  message.author.sendMessage(`
  **
 [❖═════ General Commands ═══════❖]
-
  _id معلومات عن حسابك الشخصي
-
  _server معلومات حول السيرفر
  
  _move سحب عضو الى رومك الصوتي
-
  _clear مسح الرسائل الموجوده في الروم بعدد
-
  _avatar يعرض اك صورتك الشخصية
  
  _image يعرض لك صورة السيرفر
  
  _credit يوريك كم الكريديت حقتك
-
  _daily يسوي لك سحب فلوس
-
  _rep يعطي ريب
-
  _profile معلومات عامة مع الصورة
  
  _myprems يعرض لك الخصائص المتاحة عندك
-
 [❖═════ Administrator Commands ═══════❖]
-
  _ban حضر عضو من السيرفر
  
  _kick طرد عضو من السيرفر
@@ -467,7 +457,6 @@ client.on('message', message => {
  _openroom فتح المحادثة في الروم
  
  _closeroom قفل المحادثة في الروم
-
  _role اعطاء رتبه لشخض معين
  
  _role humans اعطاء رتب للبشريين
@@ -477,11 +466,9 @@ client.on('message', message => {
  _role all اعطاء رتبه للجميع سواء بشر او بوتات
  
 [❖═════ Other ═══════❖]
-
  _support رابط سيرفر الدعم الفني
  
  _invite رابط اضافة البوت
-
  **`);
 
     }
