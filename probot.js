@@ -434,10 +434,11 @@ console.log('DesTr0');
  _avatar : يعرض لك صورتك الشخصية
  
  _image : يعرض لك صورة السيرفر
- 
+  _new : لفتح تذكره
  _credit : يوريك كم الكريديت حقتك
  _daily : يسوي لك سحب فلوس
- _rep : يعطي ريب
+ _trans amount @mention : لتحويل الكريديت
+_rep : يعطي ريب
  _profile : معلومات عامة مع الصورة
  
  _myprems : يعرض لك الخصائص المتاحة عندك
@@ -465,8 +466,6 @@ console.log('DesTr0');
  
  _role all : اعطاء رتبه للجميع سواء بشر او بوتات
  
- _new : لفتح تذكره
-
  _bc1 : برودكاست لجميع اعضاء السيرفر بايمبد
 
  _bc2 : برودكاست لجميع اعضاء السيرفر بدون ايمبد
@@ -586,18 +585,18 @@ let args = cont.slice(1);
 let sender = message.author
 if(message.content.startsWith(prefix + 'trans')) {
           if (!args[0]) {
-            message.channel.send(`**Usage: ${prefix}trans @someone amount**`);
+            message.channel.send(`**Usage: ${prefix}trans amount @mention**`);
          return;
            }
         // We should also make sure that args[0] is a number
         if (isNaN(args[0])) {
-            message.channel.send(`**Usage: ${prefix}trans amount @someone**`);
+            message.channel.send(`**Usage: ${prefix}trans amount @mention**`);
             return; // Remember to return if you are sending an error message! So the rest of the code doesn't run.
              }
             let defineduser = '';
             let firstMentioned = message.mentions.users.first();
             defineduser = (firstMentioned)
-            if (!defineduser) return message.channel.send(`**Usage: ${prefix}trans amount @someone**`);
+            if (!defineduser) return message.channel.send(`**Usage: ${prefix}trans amount @mention**`);
             var mentionned = message.mentions.users.first();
 if (!profile[sender.id]) profile[sender.id] = {}
 if (!profile[sender.id].credits) profile[sender.id].credits = 200;
