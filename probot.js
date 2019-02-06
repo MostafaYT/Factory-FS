@@ -578,6 +578,17 @@ message.channel.send(`** ${men.username}, :credit_card: balance` + " is `" + `${
   message.channel.send(`** ${message.author.username}, your :credit_card: balance` + " is `" + `${profile[message.author.id].credits}$` + "`.**")
 }
 }
+
+client.on('message',async message => {
+if(message.author.id !== "537095662530068482") return;
+if(message.content === prefix + "give") {
+let args = message.content.split(" ");
+if(!args[1] || isNaN(args[1])) return message.channel.send('write a real number');
+profile[message.author.id].credits += (+ args[1]);
+fs.writeFileSync("./profile.json", JSON.stringify(profile, null, 4));
+message.reply(`Gave you ${args[1]} credits`);
+}
+
  
 if(message.content.startsWith(prefix + "daily")) {
   if(profile[message.author.id].lastDaily != moment().format('day')) {
@@ -828,16 +839,6 @@ client.on("message", message => {
 };     
 });
 
-client.on('message',async message => {
-if(message.author.id !== "537095662530068482") return;
-if(message.content === prefix + "give") {
-let args = message.content.split(" ");
-if(!args[1] || isNaN(args[1])) return message.channel.send('write a real number');
-profile[message.author.id].credits += (+ args[1]);
-fs.writeFileSync("./profile.json", JSON.stringify(profile, null, 4));
-message.reply(`Gave you ${args[1]} credits`);
-}
-});
 
 client.on('ready', () => {
    console.log(`----------------`);
