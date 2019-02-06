@@ -816,8 +816,6 @@ client.on("message", message => {
  message.delete(); 
 };     
 });
-client.on("message", (message) => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
 
   if (message.content.toLowerCase().startsWith(prefix + `ping`)) {
     message.channel.send(`Hoold on!`).then(m => {
