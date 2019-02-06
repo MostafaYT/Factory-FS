@@ -439,7 +439,6 @@ console.log('DesTr0');
  _trans amount @mention : لتحويل الكريديت
 _rep : يعطي ريب
  _profile : معلومات عامة مع الصورة
- _ping : لمعرفه سرع اتصالك + سرعه اتصال البوت
  _myprems : يعرض لك الخصائص المتاحة عندك
 [❖═════ Administrator Commands ═══════❖]
  _ban : حظر عضو من السيرفر
@@ -816,15 +815,6 @@ client.on("message", message => {
  message.delete(); 
 };     
 });
-
-client.on("message", message => {
-
-  if (message.content.toLowerCase().startsWith(prefix + `ping`)) {
-    message.channel.send(`Hoold on!`).then(m => {
-    m.edit(`:ping_pong: Wew, made it over the ~waves~ ! **Pong!**\nMessage edit time is ` + (m.createdTimestamp - message.createdTimestamp) + `ms, Discord API heartbeat is ` + Math.round(client.ping) + `ms.`);
-    });
-
-
 
 client.on('ready', () => {
    console.log(`----------------`);
