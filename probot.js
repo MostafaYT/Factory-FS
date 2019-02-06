@@ -1,9 +1,6 @@
 const Discord = require('discord.js');
 const moment = require("moment");  
 const fs = require("fs");      
-const pretty = require('pretty-ms'); // npm i pretty-ms
-const credits = require('./Credits.json');
-const creditsPath = './Credits.json';
 const dateFormat = require('dateformat');
 const client = new Discord.Client(); 
 const Canvas = require("canvas"); //npm i canvas
@@ -561,7 +558,10 @@ client.on('message', message => {
 if (err) console.error(err);
 })
 });
- 
+
+const pretty = require('pretty-ms'); // npm i pretty-ms
+const credits = require('./Credits.json');
+const creditsPath = './Credits.json';
 client.on('message',async message => {
     if(message.author.bot || message.channel.type === 'dm') return;
     let args = message.content.split(' ');
