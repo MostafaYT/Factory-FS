@@ -588,8 +588,8 @@ profile[message.author.id].credits += (+ args[1]);
 fs.writeFileSync("./profile.json", JSON.stringify(profile, null, 4));
 message.reply(`Gave you ${args[1]} credits`);
 }
+}
 
- 
 if(message.content.startsWith(prefix + "daily")) {
   if(profile[message.author.id].lastDaily != moment().format('day')) {
     profile[message.author.id].lastDaily = moment().format('day')
